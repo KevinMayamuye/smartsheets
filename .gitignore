@@ -32,3 +32,6 @@ Thumbs.db
 
 # Misc
 .cache/
+
+# Seed script (contains admin creation logic)
+backend/scripts/seedAdmin.js

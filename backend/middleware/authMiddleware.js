@@ -19,6 +19,13 @@ const authMiddleware = async (req, res, next) => {
       return res.status(401).json({ message: "User not found" });
     }
 
+    if (user.role === "user" && user.accountApproved === false) {
+      return res.status(403).json({
+        message: "Your account is pending administrator approval.",
+        code: "ACCOUNT_NOT_APPROVED",
+      });
+    }
+
     req.user = user;
     next();
 

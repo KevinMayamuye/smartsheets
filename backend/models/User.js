@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
         enum: ["user", "admin"],
         default: "user",
     },
+    accountApproved: {
+        type: Boolean,
+        default: true,
+    },
 },
 { timestamps: true }
 );

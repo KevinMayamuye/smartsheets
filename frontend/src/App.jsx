@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext.jsx";
 import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
+import MainLayout from "./components/MainLayout.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
-import "./App.css";
+import Sheets from "./pages/Sheets.jsx";
+import SheetEditor from "./pages/SheetEditor.jsx";
+import Profile from "./pages/Profile.jsx";
 
 function AppRoutes() {
   const { user, loading } = useContext(AuthContext);
@@ -26,13 +29,17 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route
-        path="/dashboard"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <MainLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="sheets" element={<Sheets />} />
+        <Route path="sheets/:id" element={<SheetEditor />} />
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

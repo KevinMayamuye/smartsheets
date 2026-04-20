@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext.jsx";
+import { Button } from "../ui/Button.jsx";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -26,36 +27,40 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-page">
-      <h1>Admin login</h1>
-      <form onSubmit={handleSubmit}>
-        {error && <p className="error">{error}</p>}
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            autoComplete="email"
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            autoComplete="current-password"
-          />
-        </div>
-        <button type="submit" disabled={submitting}>
-          {submitting ? "Logging in..." : "Log in"}
-        </button>
-      </form>
+    <div className="sf-auth-layout">
+      <div className="sf-auth-card">
+        <h1>Admin log in</h1>
+        <form onSubmit={handleSubmit}>
+          {error && <p className="sf-error">{error}</p>}
+          <div className="sf-field">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
+          </div>
+          <div className="sf-field">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          <div className="sf-form-actions">
+            <Button type="submit" disabled={submitting}>
+              {submitting ? "Logging in…" : "Log in"}
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+/* Design tokens — Smartsheets shell (Inter / blue accent) */
+:root {
+  --sf-font: "Inter", system-ui, -apple-system, sans-serif;
+  --sf-primary: #0f6cbd;
+  --sf-primary-soft: #ebf3fb;
+  --sf-bg: #f9fafb;
+  --sf-surface: #ffffff;
+  --sf-sidebar: #f3f4f6;
+  --sf-sidebar-hover: #e5e7eb;
+  --sf-border: #e5e7eb;
+  --sf-text: #111827;
+  --sf-text-muted: #6b7280;
+  --sf-text-soft: #9ca3af;
+  --sf-danger: #d93025;
+  --sf-success: #00a550;
+  --sf-warning: #f5a623;
+  --sf-radius: 8px;
+  --sf-radius-sm: 6px;
+}
